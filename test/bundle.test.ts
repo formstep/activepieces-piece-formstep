@@ -31,7 +31,7 @@ describe('the published bundle', () => {
     const metadata = piece!.metadata()
     expect(metadata.displayName).toBe('Formstep')
     expect(metadata.auth.type).toBe('SECRET_TEXT')
-    expect(Object.keys(metadata.actions)).toEqual(['create_request', 'get_request', 'send_reminder', 'cancel_request', 'find_request'])
+    expect(Object.keys(metadata.actions)).toEqual(['create_request', 'get_request', 'send_reminder', 'cancel_request', 'find_request', 'custom_api_call'])
     expect(Object.keys(metadata.triggers)).toEqual(['request_completed', 'request_expired', 'request_canceled', 'public_link_submission_created'])
     expect(Object.values(metadata.triggers).every((trigger) => trigger.type === 'WEBHOOK')).toBe(true)
   })

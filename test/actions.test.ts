@@ -1,6 +1,7 @@
 import { afterAll, beforeAll, beforeEach, describe, expect, it } from 'vitest'
 
 import { buildCreateParams, createRequest } from '../src/lib/actions/create-request'
+import { customApiCall } from '../src/lib/actions/custom-api-call'
 import { cancelRequest, findRequest, getRequest, sendReminder } from '../src/lib/actions/request-actions'
 import { formstepAuth } from '../src/lib/auth'
 import { fieldsProperty, formDropdown, readonlyFieldsProperty } from '../src/lib/props'
@@ -177,6 +178,21 @@ describe('Create Request', () => {
 
   it("passes Formstep's refusal through with its code", async () => {
     await expect(run(createRequest, { formId: 'form_draft' })).rejects.toThrow('CONFLICT: Form is not published. Reason: FORM_NOT_PUBLISHED')
+  })
+})
+
+describe('Custom API Call', () => {
+  it('posts the body to /api/v1 on the API origin with the connection token', async () => {
+    const result = await run(customApiCall, {
+      method: 'POST',
+      url: { url: '/api/v1' },
+      headers: {},
+      queryParams: {},
+      body_type: 'json',
+      body: { data: { method: 'workspaces.list', params: {} } },
+    })
+    expect(result).toMatchObject({ status: 200, body: { ok: true, data: { items: [{ id: 'ws_1' }] } } })
+    expect(formstep.calls.at(-1)).toEqual({ method: 'workspaces.list', params: {} })
   })
 })
 

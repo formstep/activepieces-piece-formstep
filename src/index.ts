@@ -2,6 +2,7 @@ import { createPiece } from '@activepieces/pieces-framework'
 import { PieceCategory } from '@activepieces/shared'
 
 import { createRequest } from './lib/actions/create-request'
+import { customApiCall } from './lib/actions/custom-api-call'
 import { cancelRequest, findRequest, getRequest, sendReminder } from './lib/actions/request-actions'
 import { formstepAuth } from './lib/auth'
 import { publicLinkSubmissionCreated, requestCanceled, requestCompleted, requestExpired } from './lib/triggers'
@@ -18,6 +19,6 @@ export const formstep = createPiece({
   logoUrl: 'https://formstep.io/android-chrome-512x512.png',
   authors: ['formstep'],
   categories: [PieceCategory.FORMS_AND_SURVEYS],
-  actions: [createRequest, getRequest, sendReminder, cancelRequest, findRequest],
+  actions: [createRequest, getRequest, sendReminder, cancelRequest, findRequest, customApiCall],
   triggers: [requestCompleted, requestExpired, requestCanceled, publicLinkSubmissionCreated],
 })

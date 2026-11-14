@@ -18,8 +18,11 @@ Actions:
 - **Send Reminder**: email the recipient a reminder now.
 - **Cancel Request**: withdraw a pending request so its link stops working.
 - **Find Request**: find requests by the External ID a Create Request step gave them.
+- **Custom API Call**: call any Formstep API method. Send `POST` to `/api/v1` with `{"method": "…", "params": {…}}` as the body.
 
 The Form dropdown and the Fields of Create Request load from your workspace.
+
+Coming from 0.1.0? The Request Completed output and some Create Request inputs changed. See [CHANGELOG.md](CHANGELOG.md).
 
 ## Install
 

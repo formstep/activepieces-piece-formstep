@@ -42,9 +42,10 @@ const published = {
   repository: manifest.repository,
   main: './src/index.js',
   dependencies: {},
-  files: ['src/index.js', 'package.json'],
+  files: ['src/index.js', 'package.json', 'CHANGELOG.md'],
 }
 await writeFile(path.join(dist, 'package.json'), `${JSON.stringify(published, null, 2)}\n`)
 await copyFile(path.join(root, 'README.md'), path.join(dist, 'README.md'))
 await copyFile(path.join(root, 'LICENSE.md'), path.join(dist, 'LICENSE.md'))
+await copyFile(path.join(root, 'CHANGELOG.md'), path.join(dist, 'CHANGELOG.md'))
 console.info(`Built ${published.name}@${published.version} into dist/`)
