@@ -158,7 +158,7 @@ export const createRequest = createAction({
     reminders: Property.ShortText({
       displayName: 'Reminders',
       description:
-        "Idle offsets after which to remind the recipient, comma-separated, at most five, such as 2d, 5d. Write none to send no reminders; leave empty for the form's schedule.",
+        "Idle offsets after which to remind the recipient, comma-separated, at most five, such as 2d, 5d. Write none to send no reminders; leave empty for the form's schedule when Formstep emails the invitation, or no reminders otherwise.",
       required: false,
     }),
     metadata: Property.Json({
