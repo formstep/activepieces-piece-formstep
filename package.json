@@ -1,6 +1,6 @@
 {
   "name": "@formstep/piece-formstep",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "description": "Activepieces community piece for Formstep: create requests, and start flows when a request is completed, expires or is canceled, or when a form is submitted through its public link.",
   "keywords": [

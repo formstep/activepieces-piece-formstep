@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.1
+
+- Create Request: the Reminders help says the form's schedule applies only when Formstep emails the invitation, and that an empty field sends no reminders with Delivery None. Behaviour is unchanged.
+
 ## 0.2.0
 
 A rewrite, ported from the n8n node. Flows built on 0.1.0 need changes.
